@@ -6,41 +6,74 @@ class Gerador:
     def __init__(self):
         self.json_data = {}
         self.creators_game_info = {}
-        self.
+        self.creators_relationships = {}
 
     def get_data(self):
-        with open('creators.json') as json_file:
+        with open('creators_mock.json') as json_file:
             self.json_data = json.load(json_file)
 
     def map_relations(self):
+
+        # CREATING A JSON_DATA COPY IN ORDER TO AVOID FUTURE REDUNDANT CONNECTIONS
+        json_data_copy = self.json_data.copy()
+
+        # ITERATE TRHOUGH DEVS TO GET GAMES DONE
         for creator_id in self.json_data:
-            # print(data[p]['games'])
+
+            # POPULATING DEV'S GAMES
             creator_games_ids = []
-            print(self.json_data[creator_id]["name"])
             for game in self.json_data[creator_id]['games']:
-                print(game["id"])
-            # print(creat)
+                creator_games_ids.append(game["id"])
+            self.creators_game_info[creator_id] = creator_games_ids
 
-    # def get_functions(self):
-    #     for line in range(0, len(self.code)):
-    #         parameters = self.code[line].split(" ")
-    #         for parameter in parameters:
-    #             if ":" in parameter:
-    #                 self.functions[parameter.replace(":", "")] = (
-    #                     bin(int(line))[2:].zfill(9))
+            # DELETING DEV FROM COPY TO AVOID REDUNDANCY
+            del json_data_copy[creator_id]
 
-    # def generate_bin_code(self):
-    #     for item in self.binary:
-    #         full_line = 'tmp({0}) := "'.format(item)
-    #         for piece in self.binary[item]:
-    #             full_line += piece
-    #         print(full_line)
+            # GETTING CO-WORKERS
+            co_workers = []
+            for creator in json_data_copy:
+                # AVOIDING UNNECESSARY ITERATIONS TO SAVE RESOURCES
+                if creator in co_workers:
+                    break
+
+                # MUST VERIFY ALL GAMES
+                for game in json_data_copy[creator]["games"]:
+                    if game["id"] in self.creators_game_info[creator_id]:
+                        # JUST LIKE LINE 35
+                        if creator in co_workers:
+                            break
+                        else:
+                            co_workers.append(creator)
+
+            self.creators_relationships[creator_id] = co_workers
+        # print(self.creators_relationships)
+
+    def generate_network(self):
+        # CREATING GRAPH LEVEL
+        f = open("network_data.gml", "w")
+        f.write("graph [\n")
+        f.write("   directed 0\n")
+        f.write("\n")
+
+        # CREATING NODES
+        for node in self.creators_relationships:
+            f.write("   node [\n")
+            f.write("       id " + node + "\n")
+            f.write("   ]\n")
+
+        # CREATE CONNECTION
+        for source in self.creators_relationships:
+            for target in self.creators_relationships[source]:
+                f.write("   edge [\n")
+                f.write("       source " + source + "\n")
+                f.write("       target " + target + "\n")
+                f.write("   ]\n")
+
+        f.write("]")
+        f.close()
 
 
-# INSTANTIATING ASSEMBLER
 gerador = Gerador()
 gerador.get_data()
 gerador.map_relations()
-# assembler.get_functions()
-# assembler.replace_opcodes_and_registers()
-# assembler.generate_bin_code()
+gerador.generate_network()
