@@ -49,7 +49,6 @@ def getCreatorPage(nextPage):
 if __name__ == '__main__':
     route = 'creators'
     nextPage = URL + route + f'?key={API_KEY}'
-    # nextPage = 'https://api.rawg.io/api/creators?key=a158158748f540e99fe8180c6bdd422e&page=982'
     for page in range(900,2444):
-      nextPage = f'https://api.rawg.io/api/creators?key=a158158748f540e99fe8180c6bdd422e&page={page}'
+      nextPage = f'https://api.rawg.io/api/creators?key={API_KEY}&page={page}'
       getCreatorPage(nextPage)
