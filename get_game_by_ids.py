@@ -10,7 +10,7 @@ URL = 'https://api.rawg.io/api/'
 API_KEY = credentials.get_api_key()
 
 gamesJson = {}
-with open('games.json', 'r') as file:
+with open('games_copy.json', 'r') as file:
     gamesJson = json.load(file)
 
 games_ids = []
@@ -40,11 +40,17 @@ for id in games_ids:
           gamesJson[game_id] = game
 
   finally:
-      if shouldWrite:
-        print(f'escrevendo jogo {id}\n')
+      shouldSave = index % 100 == 0
+      if shouldWrite or shouldSave:
         try:
-          with open('games.json', 'w') as file:
-            file.write(json.dumps(gamesJson, indent=2, sort_keys=True))
+          if shouldSave:
+            print(f'Salvando mais 100 {id}\n')
+            with open('games_copy2.json', 'w') as file:
+              file.write(json.dumps(gamesJson))
+
+          print(f'escrevendo jogo {id}\n')
+          with open('games_copy.json', 'w') as file:
+            file.write(json.dumps(gamesJson))
             shouldWrite = False
         except IOError:
           print(f'ERROR')
