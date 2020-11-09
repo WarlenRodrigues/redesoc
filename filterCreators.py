@@ -56,7 +56,7 @@ def getGameByCreatorId(creatorId, nextUrl):
 def createGamesJsonUsingCreatorsJson(creatorsJson, games):
     gamesJson = games.copy()
     creators = creatorsJson.copy()
-    index = 14939
+    index = 0
     creators_keys = sorted(creators.keys())[index:]
     for creator_id in creators_keys:
         games_added = 0
@@ -92,18 +92,13 @@ def createGamesJsonUsingCreatorsJson(creatorsJson, games):
         finally:
             try:
                 if games_added > 0:
-                  print(f'Writing {games_added} games\n')
-                  with open('games.json', 'w') as file:
-                      file.write(json.dumps(gamesJson, indent=2, sort_keys=True))
+                    print(f'Writing {games_added} games\n')
+                    with open('games.json', 'w') as file:
+                        file.write(json.dumps(
+                            gamesJson, indent=2, sort_keys=True))
             except IOError:
                 print(f'ERROR: Writing {games_added} games')
 
-            try:
-                with open('creators_filtered.json', 'w') as file:
-                    file.write(json.dumps(creators, indent=2, sort_keys=True))
-
-            except IOError:
-                print(f'ERROR writing creators_filtered')
 
     return creators
 
