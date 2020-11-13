@@ -59,6 +59,7 @@ class Gerador:
         for node in self.creators_relationships:
             f.write("   node [\n")
             f.write("       id " + node + "\n")
+            f.write("       label #" + str(node) + "\n")
             f.write("   ]\n")
 
         # CREATE CONNECTION
