@@ -64,6 +64,11 @@ def hierarchy(rede, nós):
         s += f * log(f)
     return s / (nós * log(nós))
 
+def make_articulationPoints(rede):
+    ap = nx.articulation_points(rede)
+    return ap
+
+
 # vizinhos rede.neighbors
 # nós rede.nodes
 # exemplo de uso

@@ -3,6 +3,7 @@
             "id": 0,
             "name": "Noal",
             "rating": 4.5,
+            "games_count": 5,
             "games": [
                 {
                     "name": "Zelda",
@@ -28,6 +29,7 @@
             "id": 1,
             "name": "Warlen",
             "rating": 4.3,
+            "games_count": 5,
             "games": [
                 {
                     "name": "CS:GO",
@@ -53,6 +55,7 @@
             "id": 2,
             "name": "Farah",
             "rating": 4.3,
+            "games_count": 5,
             "games": [
                 {
                     "name": "CS:GO",
@@ -78,6 +81,8 @@
             "id": 3,
             "name": "Molina",
             "rating": 3.5,
+            "games_count": 5,
+
             "games": [
                 {
                     "name": "CoD",
@@ -96,6 +101,8 @@
             "id": 4,
             "name": "Luca Molina",
             "rating": 4.5,
+            "games_count": 5,
+
             "games": [
                 {
                     "name": "CoD",
@@ -114,6 +121,8 @@
             "id": 5,
             "name": "Gabriel Farah",
             "rating": 3,
+            "games_count": 5,
+
             "games": [
                 {
                     "name": "CoD",
@@ -132,6 +141,8 @@
             "id": 6,
             "name": "Wiilson",
             "rating": 2.4,
+            "games_count": 5,
+
             "games": [
                 {
                     "name": "CoD",
@@ -150,6 +161,8 @@
             "id": 7,
             "name": "Gustavo",
             "rating": 3,
+            "games_count": 5,
+
             "games": [
                 {
                     "name": "CoD",
@@ -168,6 +181,8 @@
             "id": 8,
             "name": "Marina",
             "rating": 4.76,
+            "games_count": 5,
+
             "games": [
                 {
                     "name": "Zelda",
@@ -193,6 +208,8 @@
         "id": 9,
         "name": "Hash",
         "rating": 4.2,
+        "games_count": 5,
+
         "games": [
             {
                 "name": "Red Dead Redemption",
@@ -218,6 +235,8 @@
         "id": 10,
         "name": "Igor",
         "rating": 4.3,
+        "games_count": 5,
+
         "games": [
             {
                 "name": "Pac Man",
@@ -237,6 +256,8 @@
         "id": 11,
         "name": "Ayres",
         "rating": 3.43,
+        "games_count": 5,
+
         "games": [
             {
                 "name": "Pac Man",
@@ -250,6 +271,8 @@
         "id": 12,
         "name": "Toranja",
         "rating": 3.43,
+        "games_count": 5,
+
         "games": [
             {
                 "name": "True Crime",
@@ -263,6 +286,7 @@
         "id": 13,
         "name": "Hélio",
         "rating": 3.45,
+        "games_count": 5,
         "games": [
             {
                 "name": "True Crime",
@@ -276,6 +300,7 @@
         "id": 14,
         "name": "Matteo",
         "rating": 4.46,
+        "games_count": 5,
         "games": [
             {
                 "name": "True Crime",
@@ -289,6 +314,7 @@
         "id": 15,
         "name": "Raphão",
         "rating": 4.7,
+        "games_count": 5,
         "games": [
             {
                 "name": "True Crime",
