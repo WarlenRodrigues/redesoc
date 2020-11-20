@@ -49,14 +49,14 @@ for creator_id in oldCreators.keys():
         creator['games_count'] = games_count
         filteredCreators[str(creator_id)] = creator
 try:
-    with open('creators_filtered_copy_2.json', 'w') as file:
+    with open('creators_filtered.json', 'w') as file:
         print(f'DELETOU: {len(oldCreators.keys()) - len(filteredCreators.keys())} creators')
         file.write(json.dumps(filteredCreators, indent=2, sort_keys=True))
 except IOError:
     print(f'ERROR writing creators_filtered')
 
 try:
-    with open('creators_games.json', 'w') as file:
+    with open('games_filtered.json', 'w') as file:
         print(f'DELETOU: {len(gamesJson.keys()) - len(filteredGames.keys())} games')
         file.write(json.dumps(filteredGames, indent=2, sort_keys=True))
 except IOError:
