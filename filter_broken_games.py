@@ -36,10 +36,12 @@ for creator_id in oldCreators.keys():
         if game_id not in brokenGames:
             if game_id in gamesJson:
                 if 'rating' in gamesJson[game_id]:
-                    if gamesJson[game_id]['rating'] > MIN_RATING:
+                    game_rating = gamesJson[game_id]['rating']
+                    game_ratings_count = gamesJson[game_id]['ratings_count']
+                    if game_rating > MIN_RATING and game_ratings_count > 0:
                       games_ratings.append(gamesJson[game_id]['rating'])
                       new_creator_games.append(game)
-                      filteredGames[game_id]: gamesJson[game_id]
+                      filteredGames[game_id] = gamesJson[game_id]
 
     games_count = len(new_creator_games)
     if games_count > 0:
